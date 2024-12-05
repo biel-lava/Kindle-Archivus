@@ -22,17 +22,17 @@ I also aim to create a sustainable platform for interacting with my epub collect
     - Primary and/or Secondary category
 
 ## Essential Documentation Links
-Authentication documentation: https://docs.gspread.org/en/latest/oauth2.html#oauth-client-id
-Authentication tutorial: https://youtu.be/Jivt894fer4?si=ksvDs55Gt1ADovF6 
-Reading and Writing documentation: https://docs.gspread.org/en/latest/user-guide.html 
-Reading and writing tutorial: https://youtu.be/jvCq7fs_1ZQ?si=RuzZ0cxuurVg-Gc1
-List of all gspread methods: https://docs.gspread.org/en/latest/api/models/worksheet.html
+* Authentication documentation: https://docs.gspread.org/en/latest/oauth2.html#oauth-client-id
+* Authentication tutorial: https://youtu.be/Jivt894fer4?si=ksvDs55Gt1ADovF6 
+* Reading and Writing documentation: https://docs.gspread.org/en/latest/user-guide.html 
+* Reading and writing tutorial: https://youtu.be/jvCq7fs_1ZQ?si=RuzZ0cxuurVg-Gc1
+* List of all gspread methods: https://docs.gspread.org/en/latest/api/models/worksheet.html
 
 
 ## Implementation Details
-Author: Roberto Miguel A. Lava
-Project start date: November 19, 2024
-Project sector: Portfolio 2025
+* Author: Roberto Miguel A. Lava
+* Project start date: November 19, 2024
+* Project sector: Portfolio 2025
  
 
 

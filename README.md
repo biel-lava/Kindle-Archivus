@@ -20,6 +20,12 @@ I also aim to create a sustainable platform for interacting with my epub collect
     - Book title
     - Author
     - Primary and/or Secondary category
+
+
+## Implementation Details
+Author: Roberto Miguel A. Lava
+Project start date: November 19, 2024
+Project sector: Portfolio 2025
  
 
 

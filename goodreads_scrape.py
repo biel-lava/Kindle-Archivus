@@ -27,3 +27,10 @@ def get_book_author(url):
     book_author = book_data.find('span', attrs={'class':'ContributorLink__name', 'data-testid': 'name'}).get_text()
     book_author = re.sub(r'\s+', ' ', book_author) # clean the author name for unnecessary space
     return book_author
+
+def get_book_rating(url):
+    book_data = create_book_data(url)
+    book_ratings = {"ave_rating":"", "rating_count":""} # create blank dict for book rating data
+    book_ratings['ave_rating'] = book_data.find('div', attrs={'class':'RatingStatistics__rating'}).get_text()
+    book_ratings['rating_count'] = book_data.find('span', attrs={'data-testid':'ratingsCount'}).get_text().split()[0]
+    return book_ratings

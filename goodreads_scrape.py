@@ -21,3 +21,9 @@ def get_book_title(url):
     book_data = create_book_data(url)
     book_title = book_data.find('h1', attrs={'class':'Text Text__title1', 'data-testid':'bookTitle'}).get_text()
     return book_title
+
+def get_book_author(url):
+    book_data = create_book_data(url)
+    book_author = book_data.find('span', attrs={'class':'ContributorLink__name', 'data-testid': 'name'}).get_text()
+    book_author = re.sub(r'\s+', ' ', book_author) # clean the author name for unnecessary space
+    return book_author

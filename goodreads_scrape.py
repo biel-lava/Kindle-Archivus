@@ -62,3 +62,15 @@ def get_pub_date(url):
     pub_date_data = " ".join(pub_date_data.split()[2:]) # ommit the other strings and retain only the date of publication
     
     return pub_date_data
+
+def book_details(url):
+        book_info = {'title':'','author':'', 'rating':{}, 'description':'', 'category':[], 'date':'' }
+        book_info['title'] = get_book_title(url)
+        book_info['author'] = get_book_author(url)
+        book_info['rating'] = get_book_rating(url)
+        book_info['description'] = get_book_desc(url)
+        book_info['category'] = get_book_cat(url)
+        book_info['date'] = get_pub_date(url)
+        book_df = pd.json_normalize(book_info)
+
+        return book_df

@@ -30,13 +30,27 @@ def get_book_author(url):
     
     return book_author
 
-def get_book_rating(url):
+def get_book_rating_data(url):
     book_data = create_book_data(url)
-    book_ratings = {"ave_rating":"", "rating_count":""} # create blank dict for book rating data
-    book_ratings['ave_rating'] = book_data.find('div', attrs={'class':'RatingStatistics__rating'}).get_text()
-    book_ratings['rating_count'] = book_data.find('span', attrs={'data-testid':'ratingsCount'}).get_text().split()[0]
+    book_rating_data = {"ave_rating":"", "rating_count":""} # create blank dict for book rating data
+    book_rating_data['ave_rating'] = book_data.find('div', attrs={'class':'RatingStatistics__rating'}).get_text()
+    book_rating_data['rating_count'] = book_data.find('span', attrs={'data-testid':'ratingsCount'}).get_text().split()[0]
     
-    return book_ratings
+    return book_rating_data
+
+def get_ave_rating(url):
+    book_rating_data = get_book_rating_data(url)
+    book_ave_rating = book_rating_data['ave_rating']
+    
+    return book_ave_rating
+
+def get_rating_count(url):
+    book_rating_count_data = get_book_rating_data(url)
+    book_rating_count = book_rating_count_data['rating_count']
+    if ',' in book_rating_count:
+        book_rating_count = book_rating_count.replace(',','')
+    
+    return book_rating_count
 
 def get_book_desc(url):
     book_data = create_book_data(url)
@@ -64,13 +78,13 @@ def get_pub_date(url):
     return pub_date_data
 
 def book_details(url):
-        book_info = {'title':'','author':'', 'rating':{}, 'description':'', 'category':[], 'date':'' }
+        book_info = {'title':'','author':'', 'description':'', 'category':[], 'date':'', 'ave_rating': None, 'rating_count': None}
         book_info['title'] = get_book_title(url)
         book_info['author'] = get_book_author(url)
-        book_info['rating'] = get_book_rating(url)
+        book_info['ave_rating'] = float(get_ave_rating(url))
+        book_info['rating_count'] = int(get_rating_count(url))
         book_info['description'] = get_book_desc(url)
         book_info['category'] = get_book_cat(url)
         book_info['date'] = get_pub_date(url)
-        book_df = pd.json_normalize(book_info)
 
-        return book_df
+        return book_info
